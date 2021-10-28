@@ -1,0 +1,27 @@
+﻿@using FizzBuzzMVC.Models
+@model FizzBuzz
+
+<h1> FizzBuzz Controller and View</h1>
+<form method="post" asp-controller="FizzBuzz" asp-action="FizzBuzz">
+    <input type="number" asp-for="FizzValue" />
+    <input type="number" asp-for="BuzzValue" />
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+
+@if (Model.Results.Count > 0)
+{
+    <table class="table table-striped">
+        <tbody>
+
+            @for (var i = 0; i < Model.Results.Count; i+=5)
+            {
+            <tr>
+                <td>@Model.Results[i]</td>
+                <td>@Model.Results[i+1]</td>
+                <td>@Model.Results[i+3]</td>
+                <td>@Model.Results[i+4]</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
